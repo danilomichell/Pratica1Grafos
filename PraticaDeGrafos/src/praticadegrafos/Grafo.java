@@ -5,7 +5,7 @@ import java.io.FileReader;
 import java.util.LinkedList;
 import java.util.Scanner;
 
-public class PraticaDeGrafos {
+public class Grafo {
 
     static String caminho = "grafo.txt";
 

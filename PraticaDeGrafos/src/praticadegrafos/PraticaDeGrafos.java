@@ -9,13 +9,6 @@ public class PraticaDeGrafos {
 
     static String caminho = "grafo.txt";
 
-    public static void main(String[] args) throws FileNotFoundException {
-        int vertices = numeroVertices();
-        LinkedList listas[] = new LinkedList[vertices];
-        carregarGrafo(listas);
-        imprimirGrafo(listas, vertices);
-    }
-    
     //Pega o numero de vertices
     public static int numeroVertices() throws FileNotFoundException {
         int contador = 0;
@@ -53,15 +46,22 @@ public class PraticaDeGrafos {
     public static void imprimirGrafo(LinkedList[] listas, int numeroVertice) {
         for (int i = 0; i < numeroVertice; i++) {
             System.out.printf("%s: ", (listas[i].get(0)));
-            for (int j = 0; j < listas[i].size() - 1; j++) {
-                System.out.print(listas[i].get(j + 1) + " ");
+            for (int j = 1; j < listas[i].size(); j++) {
+                System.out.print(listas[i].get(j) + " ");
             }
             System.out.println();
         }
     }
-    
+
     //Mostrar adjacentes passando vertice em parametro
-    public void adjacentesVertice(String vertice){
-        
+    public void adjacentesVertice(String vertice, int numeroVertice, LinkedList listas[]) {
+        for (int i = 0; i < numeroVertice; i++) {
+            if ((listas[i].get(0)).equals(vertice)) {
+                for (int j = 1; j < listas[i].size(); j++) {
+                    System.out.print(listas[i].get(j) + " ");
+                }
+                System.out.println("São adjacentes de "+listas[i].get(0));
+            }
+        }
     }
 }

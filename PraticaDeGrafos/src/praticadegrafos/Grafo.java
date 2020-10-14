@@ -42,7 +42,7 @@ public class Grafo {
         }
     }
 
-    //Imprime os vertices de saída e os de chegada
+    //Imprime o vertice de saída e os de chegada
     public static void imprimirGrafo(LinkedList[] listas, int numeroVertice) {
         for (int i = 0; i < numeroVertice; i++) {
             System.out.printf("%s: ", (listas[i].get(0)));
@@ -54,14 +54,25 @@ public class Grafo {
     }
 
     //Mostrar adjacentes passando vertice em parametro
-    public void adjacentesVertice(String vertice, int numeroVertice, LinkedList listas[]) {
+    public void getAdjacentes(String vertice, int numeroVertice, LinkedList listas[]) {
         for (int i = 0; i < numeroVertice; i++) {
             if ((listas[i].get(0)).equals(vertice)) {
                 for (int j = 1; j < listas[i].size(); j++) {
                     System.out.print(listas[i].get(j) + " ");
                 }
-                System.out.println("São adjacentes de "+listas[i].get(0));
+                System.out.println("são adjacentes de " + listas[i].get(0));
             }
         }
     }
+
+    //Verifica se um determinado grafo é regular ou não.
+    public boolean ehRegular(int numeroVertice, LinkedList listas[]) {
+        for (int i = 0; i < numeroVertice - 1; i++) {
+            if(listas[i].size() != listas[i+1].size()){
+                return false;
+            }
+        }
+        return true;
+    }
+
 }

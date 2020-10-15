@@ -81,11 +81,11 @@ public class Grafo {
     //Verifica se um determinado grafo é completo ou não.
     public boolean ehCompleto(int numeroVertice, LinkedList listas[]) {
         ArrayList vertices = new ArrayList();
-        for (int i = 1; i < numeroVertice; i++) {
+        for (int i = 0; i < numeroVertice; i++) {
             vertices.add(i);
         }
         for (int i = 0; i < numeroVertice; i++) {
-            if (listas[i].size() - 1 != vertices.size()) {
+            if (listas[i].size() - 1 != vertices.size() - 1) {
                 return false;
             }
         }

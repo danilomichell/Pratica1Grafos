@@ -8,7 +8,7 @@ import java.util.Scanner;
 
 public class Grafo {
 
-    static String caminho = "grafo.txt";
+    static String caminho = "C:\\Users\\paulo\\Documents\\GitHub\\Pratica1Grafos\\PraticaDeGrafos\\grafo.txt";
 
     //Pega o numero de vertices
     public static int numeroVertices() throws FileNotFoundException {
@@ -110,5 +110,18 @@ public class Grafo {
             fila.remove(0);
         }
         return visitados;
+    }
+
+    //Verifica se um determinado grafo é conexo ou não
+    public boolean ehConexo(int numeroVertice, LinkedList listas[]){
+        ArrayList visitado = new ArrayList();
+        //1 é o vertice de inicio
+        visitado = buscaLargura(numeroVertice, listas, 1);
+
+        if(numeroVertice != visitado.size()){
+            return false;
+        }
+
+        return true;
     }
 }

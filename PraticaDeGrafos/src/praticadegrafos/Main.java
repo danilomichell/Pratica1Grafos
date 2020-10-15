@@ -37,5 +37,13 @@ public class Main {
         } else {
             System.out.println("O grafo não é completo");
         }
-    }     
+
+        //Verifica se o determinado grafo é conexo ou não, recebendo true ou false
+        boolean conexo = grafo.ehConexo(vertices, listas);//funcionando
+        if (regular) {
+            System.out.println("O grafo é conexo");
+        } else {
+            System.out.println("O grafo não é conexo");
+        }
+    }   
 }

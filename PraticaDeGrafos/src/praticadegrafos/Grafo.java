@@ -3,6 +3,7 @@ package praticadegrafos;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.util.LinkedList;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Grafo {
@@ -68,7 +69,21 @@ public class Grafo {
     //Verifica se um determinado grafo é regular ou não.
     public boolean ehRegular(int numeroVertice, LinkedList listas[]) {
         for (int i = 0; i < numeroVertice - 1; i++) {
-            if(listas[i].size() != listas[i+1].size()){
+            if (listas[i].size() != listas[i + 1].size()) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    //Verifica se um determinado grafo é completo ou não.
+    public boolean ehCompleto(int numeroVertice, LinkedList listas[]) {
+        ArrayList vertices = new ArrayList();
+        for (int i = 1; i < numeroVertice; i++) {
+            vertices.add(i);
+        }
+        for (int i = 0; i < numeroVertice; i++) {
+            if (listas[i].size() - 1 != vertices.size()) {
                 return false;
             }
         }

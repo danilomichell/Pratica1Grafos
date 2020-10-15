@@ -23,5 +23,12 @@ public class Main {
         } else {
             System.out.println("O grafo não é regular");
         }
+        //Verifica se um determinado grafo é completo ou não, recebendo true ou false
+        boolean completo = grafo.ehCompleto(vertices, listas);//funcionando
+        if (regular) {
+            System.out.println("O grafo é completo");
+        } else {
+            System.out.println("O grafo não é completo");
+        }
     }
 }

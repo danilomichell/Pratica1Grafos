@@ -1,6 +1,7 @@
 package praticadegrafos;
 
 import java.io.FileNotFoundException;
+import java.util.ArrayList;
 import java.util.LinkedList;
 
 public class Main {
@@ -15,7 +16,13 @@ public class Main {
         //Imprime o grafo
         Grafo.imprimirGrafo(listas, vertices);//funcionando
         //Mostra os adjacentes de um grafo indicado por parametro(grafo passdo por String)
-        grafo.getAdjacentes("1", vertices, listas);//funcionando
+        ArrayList<Integer> adjacentes = new ArrayList();
+        adjacentes = grafo.getAdjacentes(1, vertices, listas);//funcionando
+        System.out.print("Os adjacentes são: ");
+        for(int i = 0; i < adjacentes.size(); i++){
+            System.out.print(adjacentes.get(i) + " ");
+        }
+        System.out.println("");
         //Verifica se um determinado grafo é regular ou não, recebendo true ou false
         boolean regular = grafo.ehRegular(vertices, listas);//funcionando
         if (regular) {
@@ -30,5 +37,5 @@ public class Main {
         } else {
             System.out.println("O grafo não é completo");
         }
-    }
+    }     
 }

@@ -13,14 +13,17 @@ Na classe "main", inicialize o método passando como parâmetro o vértice, o nu
 Na classe "main", inicialize o método usando como parâmetro os vértices e a lista com grafos, exemplo: boolean regular = grafo.ehRegular(vértices, listas);
 **OBS**: na nossa classe "main" colocamos uma estrutura if/else para informar se o grafo é regular ou não através da resposta fornecida pelo método ehRegular
 
+* Funcionamento do método ehCompleto:
+Na classe "main", inicialize o método passando como parâmetro o número de vértices e a lista com grafos, exemplo:  boolean completo = grafo.ehCompleto(vértices, listas);
+**OBS**: na nossa classe "main" colocamos uma estrutura if/else para informar se o grafo é completo ou não através da resposta fornecida pelo método ehCompleto_
+
 * Funcionamento do método buscaLargura:
 Na classe “grafo”, utilize ele para fazer com que faça uma busca em largura, que é percorrer todo o grafo e no processo ele marca quem foi visitado para não adicionar mais esse valor na fila, depois do processo feito ele retorna os valores visitados.
 **OBS**:no método buscaLargura é preciso substituir qual vértice vai iniciar a busca.
 
 * Funcionamento do método ehConexo:
 Na classe "main", inicialize o método usando como parâmetro os vértices e a lista com os grafos(O vértice inicial já foi alocado no metodo buscaLargura) e ele irá retornar o valor booleano se é falso ou verdadeiro, caso o grafo seja conexo, que é ser um grafo onde todos os vértices estão ligados.
-**OBS**: Foi preciso trocar o caminho poís estava dando erro na hora da de compilar e rodar o código no Visual Studio
+**OBS_1**: Foi preciso trocar o caminho poís estava dando erro na hora da de compilar e rodar o código no Visual Studio
+**OBS_2**: na nossa classe "main" colocamos uma estrutura if/else para informar se o grafo é conexo ou não através da resposta fornecida pelo método ehConexo_
 
-* Funcionamento do método ehCompleto:
-Na classe "main", inicialize o método passando como parâmetro o número de vértices e a lista com grafos, exemplo:  boolean completo = grafo.ehCompleto(vértices, listas);
-**OBS**: na nossa classe "main" colocamos uma estrutura if/else para informar se o grafo é regular ou não através da resposta fornecida pelo método ehCompleto_
+

@@ -37,7 +37,7 @@ public class Grafo {
             String line = input.nextLine();
             String vertices[] = line.split("\t");
             for (String vertice : vertices) {
-                listas[contador].add(vertice);
+                listas[contador].add(Integer.parseInt(vertice));
             }
             contador++;
         }
@@ -55,15 +55,17 @@ public class Grafo {
     }
 
     //Mostrar adjacentes passando vertice em parametro
-    public void getAdjacentes(String vertice, int numeroVertice, LinkedList listas[]) {
+    public ArrayList<Integer> getAdjacentes(int vertice, int numeroVertice, LinkedList listas[]) {
+        ArrayList<Integer> adjacentes = new ArrayList();
         for (int i = 0; i < numeroVertice; i++) {
             if ((listas[i].get(0)).equals(vertice)) {
                 for (int j = 1; j < listas[i].size(); j++) {
-                    System.out.print(listas[i].get(j) + " ");
+                    adjacentes.add((Integer) listas[i].get(j));
                 }
-                System.out.println("são adjacentes de " + listas[i].get(0));
+               
             }
         }
+        return adjacentes;
     }
 
     //Verifica se um determinado grafo é regular ou não.
@@ -90,4 +92,23 @@ public class Grafo {
         return true;
     }
 
+    //Efetua a busca em largura
+    public ArrayList<Integer> buscaLargura(int numeroVertice, LinkedList listas[], int inicio) {
+        ArrayList<Integer> fila = new ArrayList();
+        ArrayList<Integer> visitados = new ArrayList();
+        fila.add(inicio);
+        while (fila.size() > 0) {
+            visitados.add(fila.get(0));
+            ArrayList<Integer> adjacentes = new ArrayList();
+            int verticeBusca = fila.get(0);
+            adjacentes = getAdjacentes(verticeBusca, numeroVertice, listas);
+            for (int i = 0; i < adjacentes.size(); i++) {
+                if (!(visitados.contains(adjacentes.get(i))) && !(fila.contains(adjacentes.get(i)))) {          
+                    fila.add(adjacentes.get(i));
+                }
+            }
+            fila.remove(0);
+        }
+        return visitados;
+    }
 }

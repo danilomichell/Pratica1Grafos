@@ -26,4 +26,7 @@ Na classe "main", inicialize o método usando como parâmetro os vértices e a l
 **OBS_1**: Foi preciso trocar o caminho poís estava dando erro na hora da de compilar e rodar o código no Visual Studio
 **OBS_2**: na nossa classe "main" colocamos uma estrutura if/else para informar se o grafo é conexo ou não através da resposta fornecida pelo método ehConexo_
 
+* Funcionamento do algoritmo de Menor caminho(Dijkstra):
+
+
 

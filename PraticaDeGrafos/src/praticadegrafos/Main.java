@@ -7,7 +7,7 @@ import java.util.LinkedList;
 public class Main {
 
     public static void main(String[] args) throws FileNotFoundException {
-        //Cria e carrega o grafo
+        /*//Cria e carrega o grafo
         Grafo grafo = new Grafo();
         int vertices = Grafo.numeroVertices();
         LinkedList listas[] = new LinkedList[vertices];
@@ -44,14 +44,14 @@ public class Main {
             System.out.println("O grafo é conexo");
         } else {
             System.out.println("O grafo não é conexo");
-        }
+        }*/
 
         // Metodo que gera um novo grafo para a utilização do algoritmo de dijkstra
         /*Foi feito usando ArrayList para poder facilitar o processo pois 
         LinkedList iria dificultar um pouco*/
-        int vertices2 = Grafo.numeroVertices();
+        
         ArrayList<VerticeValorado> grafo2 = GrafoDijkstra.carregarGrafoDijkstra();
-        //Grafo.djikstra(grafo.get(0), grafo);
-        GrafoDijkstra.printGrafoDijkstra(grafo2);
+        GrafoDijkstra.menorCaminho1(grafo2.get(0), grafo2);
+        //GrafoDijkstra.printGrafoDijkstra(grafo2);
     }
 }

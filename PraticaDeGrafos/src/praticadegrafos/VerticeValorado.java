@@ -6,7 +6,7 @@ public class VerticeValorado {
 
     private String valor;
     private boolean visitado;
-    private int dist;
+    private float dist;
     private ArrayList<VerticeValorado> vertices;
 
     public VerticeValorado(String valor) {
@@ -16,14 +16,14 @@ public class VerticeValorado {
         this.dist = 0;
     }
 
-    public VerticeValorado(String valor, int dist) {
+    public VerticeValorado(String valor, float dist) {
         this.vertices = new ArrayList<>();
         this.valor = valor;
         this.visitado = false;
         this.dist = dist;
     }
 
-    public VerticeValorado(String valor, int dist, ArrayList<VerticeValorado> adjacentes) {
+    public VerticeValorado(String valor, float dist, ArrayList<VerticeValorado> adjacentes) {
         this.vertices = adjacentes;
         this.valor = valor;
         this.visitado = false;
@@ -50,7 +50,7 @@ public class VerticeValorado {
         return dist;
     }
 
-    public void setDist(int dist) {
+    public void setDist(float dist) {
         this.dist = dist;
     }
 

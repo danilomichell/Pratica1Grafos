@@ -45,5 +45,7 @@ public class Main {
         } else {
             System.out.println("O grafo não é conexo");
         }
+        // Metodo que gera um novo grafo para a utilização do algoritmo de dijkstra
+        grafo.Graphdijkstra();
     }   
 }

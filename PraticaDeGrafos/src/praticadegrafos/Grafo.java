@@ -8,7 +8,7 @@ import java.util.Scanner;
 
 public class Grafo {
 
-    static String caminho = "C:\\Users\\paulo\\Documents\\GitHub\\Pratica1Grafos\\PraticaDeGrafos\\grafo.txt";
+    static String caminho = "C:\\Users\\Dinopc\\Desktop\\coisas aleatorias\\3 periodo\\arquivo.txt";
 
     //Pega o numero de vertices
     public static int numeroVertices() throws FileNotFoundException {
@@ -119,5 +119,75 @@ public class Grafo {
         }
 
         return true;
+    }
+    
+    //utilização do algoritmo de dijkstra
+        public void Graphdijkstra(){
+        Scanner scan = new Scanner(System.in);
+
+        int[][] matriz = new int[5][5];
+        int[] distance = new int[5];
+        int[] visited = new int[5];
+        int[] preD = new int[5];
+        int min;
+        int nextNode = 0;
+        
+        //considera-se um grafo conexo e que sempre parte o vértice 0 para os demais 
+        System.out.println("Insira os valores das arestas para ccada vértice");
+
+        for (int i = 0; i < distance.length; i++) {
+            visited[i] = 0;
+            preD[i] = 0;
+            for (int j = 0; j < distance.length; j++) {
+                matriz[i][j] = scan.nextInt();
+
+                if (matriz[i][j] == 0) {
+                    matriz[i][j] = 999;
+                }
+
+            }
+        }
+        distance = matriz[0];
+        distance[0] = 0;
+        visited[0] = 1;
+
+        for (int i = 0; i < distance.length; i++) {
+            min = 999;
+            for (int j = 0; j < distance.length; j++) {
+                if (min > distance[j] && visited[j] != 1) {
+                    min = distance[j];
+                    nextNode = j;
+                }
+            }
+
+            visited[nextNode] = 1;
+            for (int c = 0; c < 5; c++) {
+                if (visited[c] != 1) {
+                    if (min + matriz[nextNode][c] < distance[c]) {
+                        distance[c] = min + matriz[nextNode][c];
+                        preD[c] = nextNode;
+                    }
+                }
+            }
+        }
+
+        //imprimindo os caminhos
+        for (int i = 0; i < distance.length; i++) {
+            System.out.print("|" + distance[i]);
+        }
+        System.out.print("|");
+        System.out.println();
+        for (int i = 0; i < distance.length; i++) {
+            int j;
+            System.out.print("Caminho = " + i);
+            j = i;
+            do {
+                j = preD[j];
+                System.out.print(" <- " + j);
+            } while (j != 0);
+            {
+                System.out.println();
+            }
+        }
     }
 }

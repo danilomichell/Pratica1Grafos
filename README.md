@@ -11,7 +11,6 @@ Na classe main, inicialize o método passando como parâmetros a lista que cont�
 Na classe "main", inicialize o método passando como parâmetro o vértice, o numero de vértice e a lista com grafos, exemplo: Grafo.getAdjacentes("1", vértices, listas);
 * Funcionamento do método ehRegular:
 Na classe "main", inicialize o método usando como parâmetro os vértices e a lista com grafos, exemplo: boolean regular = grafo.ehRegular(vértices, listas);
-
 **OBS**: na nossa classe "main" colocamos uma estrutura if/else para informar se o grafo é regular ou não através da resposta fornecida pelo método ehRegular
 
 * Funcionamento do método ehCompleto:

@@ -19,7 +19,7 @@ public class Main {
         ArrayList<Integer> adjacentes = new ArrayList();
         adjacentes = grafo.getAdjacentes(1, vertices, listas);//funcionando
         System.out.print("Os adjacentes são: ");
-        for(int i = 0; i < adjacentes.size(); i++){
+        for (int i = 0; i < adjacentes.size(); i++) {
             System.out.print(adjacentes.get(i) + " ");
         }
         System.out.println("");
@@ -45,7 +45,13 @@ public class Main {
         } else {
             System.out.println("O grafo não é conexo");
         }
+
         // Metodo que gera um novo grafo para a utilização do algoritmo de dijkstra
-        grafo.Graphdijkstra();
-    }   
+        /*Foi feito usando ArrayList para poder facilitar o processo pois 
+        LinkedList iria dificultar um pouco*/
+        int vertices2 = Grafo.numeroVertices();
+        ArrayList<VerticeValorado> grafo2 = GrafoDijkstra.carregarGrafoDijkstra();
+        //Grafo.djikstra(grafo.get(0), grafo);
+        GrafoDijkstra.printGrafoDijkstra(grafo2);
+    }
 }

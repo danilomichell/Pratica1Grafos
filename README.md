@@ -27,7 +27,8 @@ Na classe "main", inicialize o método usando como parâmetro os vértices e a l
 **OBS_2**: na nossa classe "main" colocamos uma estrutura if/else para informar se o grafo é conexo ou não através da resposta fornecida pelo método ehConexo_
 
 * Funcionamento do algoritmo de Menor caminho(Dijkstra):
-Nessa tarefa nós implementamos o algoritmo de menor caminho em java, seu funcionamento se da dessa forma, escolhe um vértice de origem e marca o mesmo, "adiciona seus adjacentes em uma lista" seus adjacentes junto com a distancia que decorre do mesmo, após isso ele escolhe o que tem a menor distancia e vai para ele, nisso ele faz o mesmo processo agora com o valor da distancia anterior exemplo: A para B tem a distancia de 3, e de B para C tem a distancia de 4 + 3(Distancia vinda de A para B). Após isso faz esse processo até que todos estejam marcados.
+Nessa tarefa nós implementamos o algoritmo de menor caminho em java, seu funcionamento se da dessa forma, escolhe um vértice de origem e marca o mesmo, "adiciona seus adjacentes em uma lista" seus adjacentes junto com a distancia que decorre do mesmo, após isso ele escolhe o que tem a menor distancia e vai para ele, nisso ele faz o mesmo processo agora com o valor da distancia anterior exemplo: A para B tem a distancia de 3, e de B para C tem a distancia de 4 + 3(Distancia vinda de A para B), Após isso faz esse processo até que todos estejam marcados.
+**OBS_1**: Nós tivemos que "refazer" e seperar esse algoritmo poís ele utiliza matris, algo que nós não usamos nas outras implementações.
 
 
 

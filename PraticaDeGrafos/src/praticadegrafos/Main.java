@@ -7,7 +7,7 @@ import java.util.LinkedList;
 public class Main {
 
     public static void main(String[] args) throws FileNotFoundException {
-        //Cria e carrega o grafo
+        /*//Cria e carrega o grafo
         Grafo grafo = new Grafo();
         int vertices = Grafo.numeroVertices();
         LinkedList listas[] = new LinkedList[vertices];
@@ -44,21 +44,21 @@ public class Main {
             System.out.println("O grafo é conexo");
         } else {
             System.out.println("O grafo não é conexo");
-        }
+        }*/
         // Metodo que gera um novo grafo para a utilização do algoritmo de dijkstra
         /*Foi feito usando ArrayList para poder facilitar o processo pois 
         LinkedList iria dificultar um pouco*/
         System.out.println("");
         System.out.println("Algoritmo do menor caminho");
+        ArrayList<VerticeValorado> grafo2 = GrafoDijkstra.carregarGrafoDijkstra();//funcionando
+        GrafoDijkstra.printGrafoDijkstra(grafo2);
         System.out.println("");
         //Algoritimo do menor caminho, passando o vertice de origem
         System.out.println("Dijkstra 1");
-        ArrayList<VerticeValorado> grafo2 = GrafoDijkstra.carregarGrafoDijkstra();//funcionando
-        GrafoDijkstra.printGrafoDijkstra(grafo2);
-        GrafoDijkstra.menorCaminho1(grafo2.get(0), grafo2);
+        GrafoDijkstra.menorCaminho1("A", grafo2);
         System.out.println("");
         //Algoritimo do menor caminho, passando o vertice de origem e o de destino
         System.out.println("Dijkstra 2");
-        GrafoDijkstra.menorCaminho2(grafo2.get(0), grafo2.get(1), grafo2);//funcionando
+        GrafoDijkstra.menorCaminho2("A", "B", grafo2);//funcionando
     }
 }

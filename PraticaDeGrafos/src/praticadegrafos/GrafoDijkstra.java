@@ -77,6 +77,7 @@ public class GrafoDijkstra {
         ArrayList path1 = new ArrayList();
         ArrayList path2 = new ArrayList();
         Stack pilhaCaminho = new Stack();
+        //Pega o vertice de origem valorado
         for (int i = 0; i < grafo.size(); i++) {
             if ((grafo.get(i).getValor()).equals(origem)) {
                 verticeInicio = grafo.get(i);

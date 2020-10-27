@@ -166,7 +166,7 @@ public class GrafoDijkstra {
     }
 
     //Menor caminho do vertice de inicio para todos os vertice
-    public static void menorCaminho2(VerticeValorado origem, VerticeValorado destino,ArrayList<VerticeValorado> grafo) {
+    public static void menorCaminho2(VerticeValorado origem, VerticeValorado destino, ArrayList<VerticeValorado> grafo) {
         VerticeValorado verticeInicio = origem;
         ArrayList<VerticeValorado> vertices = new ArrayList();
         ArrayList<Boolean> explorado = new ArrayList();
@@ -243,23 +243,21 @@ public class GrafoDijkstra {
             }
 
         }
-        //Printa os caminhos armazenados na pilhaCaminho
-        for (int i = 0; i < grafo.size(); i++) {
-            VerticeValorado verticeFinal = vertices.get(i);
-            pilhaCaminho.add(verticeFinal);
-            while (!pilhaCaminho.contains("-")) {
-                pilhaCaminho.add(path2.get(vertices.indexOf(verticeFinal)));
-                verticeFinal = path2.get(vertices.indexOf(verticeFinal)) instanceof VerticeValorado ? (VerticeValorado) path2.get(vertices.indexOf(verticeFinal)) : null;
-            }
-            pilhaCaminho.pop();
-            Collections.reverse(pilhaCaminho);
-
-            System.out.print("Menor caminho de " + verticeInicio.getValor() + " até " + vertices.get(i).getValor() + ": " + dist.get(i) + " | Path: ");
-            for (int j = 0; j < pilhaCaminho.size(); j++) {
-                System.out.print(" - " + ((VerticeValorado) pilhaCaminho.get(j)).getValor());
-            }
-            System.out.println("");
-            pilhaCaminho = new Stack();
+        //Printa o caminho ate o vertice de destino armazenado na pilhaCaminho
+        //Nao possui o for pois printa apenas o caminho ate o vertice de destino
+        VerticeValorado verticeFinal = destino;
+        pilhaCaminho.add(verticeFinal);
+        while (!pilhaCaminho.contains("-")) {
+            pilhaCaminho.add(path2.get(vertices.indexOf(verticeFinal)));
+            verticeFinal = path2.get(vertices.indexOf(verticeFinal)) instanceof VerticeValorado ? (VerticeValorado) path2.get(vertices.indexOf(verticeFinal)) : null;
         }
+        pilhaCaminho.pop();
+        Collections.reverse(pilhaCaminho);
+        System.out.print("Menor caminho de " + verticeInicio.getValor() + " até " + destino.getValor() + ": " + dist.get(vertices.indexOf(destino)) + " | Path: ");
+        for (int j = 0; j < pilhaCaminho.size(); j++) {
+            System.out.print(" - " + ((VerticeValorado) pilhaCaminho.get(j)).getValor());
+        }
+        System.out.println("");
+        pilhaCaminho = new Stack();
     }
 }

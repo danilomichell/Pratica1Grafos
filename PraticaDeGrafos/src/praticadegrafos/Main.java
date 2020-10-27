@@ -49,9 +49,17 @@ public class Main {
         // Metodo que gera um novo grafo para a utilização do algoritmo de dijkstra
         /*Foi feito usando ArrayList para poder facilitar o processo pois 
         LinkedList iria dificultar um pouco*/
-        
+        System.out.println("");
+        System.out.println("Algoritmo do menor caminho");
+        System.out.println("");
+        //Algoritimo do menor caminho, passando o vertice de origem
+        System.out.println("Dijkstra 1");
         ArrayList<VerticeValorado> grafo2 = GrafoDijkstra.carregarGrafoDijkstra();
         GrafoDijkstra.printGrafoDijkstra(grafo2);
         GrafoDijkstra.menorCaminho1(grafo2.get(0), grafo2);
+        System.out.println("");
+        //Algoritimo do menor caminho, passando o vertice de origem e o de destino
+        System.out.println("Dijkstra 2");
+        GrafoDijkstra.menorCaminho2(grafo2.get(0), grafo2.get(1), grafo2);
     }
 }

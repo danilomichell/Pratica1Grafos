@@ -28,6 +28,8 @@ Na classe "main", inicialize o método usando como parâmetro os vértices e a l
 
 * Funcionamento do algoritmo de Menor caminho(Dijkstra):
 Nessa tarefa nós implementamos o algoritmo de menor caminho em java, seu funcionamento se da dessa forma: O usuário informa o valor de cada aresta que liga os vértices, sendo este grafo em forma de matriz, começando por todas as arestas que se ligam ao vértice 0, depois para todas as arestas que ligam ao vértice 1 e assim sucessivamente ate que se informe os valores para todas as arestas do grafo. Após isso, o sistema informará a soma final de cada caminho e qual foi o caminho formado com a menor distância para todos os vértices.
+**Parte1**:
+Agora explicando o funcionamento do codigo, na classe main utiliza o metodo carregarGrafoDijkstra() para carregar o grafo do caminho adicionado, depois para usar o método menorCaminho1() precisa passar os vértices precisam ser passados com a seguinte expressão grafo2.get(i) sendo que i é a linha do vértice e por fim coloca o próprio grafo sendo instanciado. Exemplo: menorCaminho1(grafo2.get(i), grafo2);
 **OBS_1**: Nós tivemos que fazer seperado do algoritmo que representa o grafo em lista encadeada, poís ele representa o grafo através de uma matriz, algo que nós não usamos nas outras implementações.
 
 

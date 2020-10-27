@@ -66,7 +66,7 @@ public class GrafoDijkstra {
             System.out.println();
         });
     }
-
+    //Menor caminho do vertice de inicio para todos os vertice
     public static void menorCaminho1(VerticeValorado vertice, ArrayList<VerticeValorado> grafo) {
         VerticeValorado verticeInicio = vertice;
         ArrayList<VerticeValorado> vertices = new ArrayList();
@@ -74,24 +74,24 @@ public class GrafoDijkstra {
         ArrayList<Float> dist = new ArrayList();
         ArrayList path1 = new ArrayList();
         ArrayList path2 = new ArrayList();
-        Stack caminho = new Stack();
-        //Adiciona os vértices do grafo em uma lista
+        Stack pilhaCaminho = new Stack();
+        //Coloca os vertices na lista
         for (int i = 0; i < grafo.size(); i++) {
             vertices.add(grafo.get(i));
         }
-        //Adiciona valores a lista Explorado
+        //Iniciar o explorado, todos como false pois nao iniciou o algoritmo
         for (int i = 0; i < grafo.size(); i++) {
             explorado.add(i, false);
         }
         //Inicia o vertice de inicio no explorado passando como "true"
         explorado.set(vertices.indexOf(vertice), true);
-        //Adiciona valores a lista dist
+        //Inicia o dist, todos como 0
         for (int i = 0; i < grafo.size(); i++) {
-            dist.add(i, Float.POSITIVE_INFINITY);
+            dist.add(0, Float.POSITIVE_INFINITY);
         }
         //Inicia o vertice de inicio no dist recebendo 0
         dist.set(vertices.indexOf(vertice), (float) 0);
-        //Adiciona valores a lista path1 e path2
+        //Inicia o path1 e path2
         for (int i = 0; i < grafo.size(); i++) {
             if (i == vertices.indexOf(vertice)) {
                 path1.add("-");
@@ -101,16 +101,16 @@ public class GrafoDijkstra {
                 path2.add(0);
             }
         }
-        // Pega os adjacentes e calcula os caminhos
+        // Pega os adjacentes e calcula os caminhos para cada um
         while (explorado.contains(false)) {
             //Inicia um auxiliador de controle
             VerticeValorado auxiliador = grafo.get(grafo.indexOf(vertice));
             for (int i = 0; i < auxiliador.getVertices().size(); i++) {
                 //Controle dos vertices adjacentes
                 VerticeValorado a = auxiliador.getVertices().get(i);
-                for (VerticeValorado vertice1 : vertices) {
-                    if (vertice1.getValor().equals(a.getValor())) {
-                        int aux1 = vertices.indexOf(vertice1);
+                for (int j=0;j<vertices.size();j++) {
+                    if (vertices.get(j).getValor().equals(a.getValor())) {
+                        int aux1 = vertices.indexOf(vertices.get(j));
                         int aux2 = vertices.indexOf(vertice);
                         if (dist.get(aux1) > dist.get(aux2) + a.getDist()) {
                             dist.set(aux1, dist.get(aux2) + a.getDist());
@@ -119,14 +119,14 @@ public class GrafoDijkstra {
                     }
                 }
             }
-
+            //Atualiza o menor caminho no dist
             ArrayList<Float> listaMenorCaminho = new ArrayList();
             for (int i = 0; i < grafo.size(); i++) {
                 if (!explorado.get(i)) {
                     listaMenorCaminho.add(dist.get(i));
                 }
             }
-
+            //Adiciona "true" a lista Explorado quando vertice for explorado
             Collections.sort(listaMenorCaminho);
             for (int j = 0; j < grafo.size(); j++) {
                 if (!explorado.get(j) && (dist.get(j).floatValue() == listaMenorCaminho.get(0).floatValue())) {
@@ -134,33 +134,33 @@ public class GrafoDijkstra {
                     explorado.set(j, true);
                 }
             }
-
-            for (int k = 0; k < path1.size(); k++) {
-                if (path2.get(k).equals("-")) {
-                    path2.set(k, "-");
+            //Pega os valores de path1 e transforma em vértices no path2
+            for (int i = 0; i < path1.size(); i++) {
+                if (path2.get(i).equals("-")) {
+                    path2.set(i, "-");
                 } else {
-                    path2.set(k, vertices.get(Integer.parseInt(path1.get(k).toString())));
+                    path2.set(i, vertices.get(Integer.parseInt(path1.get(i).toString())));
                 }
             }
 
         }
-
+        //Printa os caminhos armazenados na pilhaCaminho
         for (int i = 0; i < grafo.size(); i++) {
-            VerticeValorado vertFinal = vertices.get(i);
-            caminho.add(vertFinal);
-            while (!caminho.contains("-")) {
-                caminho.add(path2.get(vertices.indexOf(vertFinal)));
-                vertFinal = path2.get(vertices.indexOf(vertFinal)) instanceof VerticeValorado ? (VerticeValorado) path2.get(vertices.indexOf(vertFinal)) : null;
+            VerticeValorado verticeFinal = vertices.get(i);
+            pilhaCaminho.add(verticeFinal);
+            while (!pilhaCaminho.contains("-")) {
+                pilhaCaminho.add(path2.get(vertices.indexOf(verticeFinal)));
+                verticeFinal = path2.get(vertices.indexOf(verticeFinal)) instanceof VerticeValorado ? (VerticeValorado) path2.get(vertices.indexOf(verticeFinal)) : null;
             }
-            caminho.pop();
-            Collections.reverse(caminho);
+            pilhaCaminho.pop();
+            Collections.reverse(pilhaCaminho);
 
-            System.out.print("Distância miníma de " + verticeInicio.getValor() + " para " + vertices.get(i).getValor() + ": " + dist.get(i) + " => CAMINHO: ");
-            for (int j = 0; j < caminho.size(); j++) {
-                System.out.print(" - " + (caminho.get(j) instanceof VerticeValorado ? ((VerticeValorado) caminho.get(j)).getValor() : null));
+            System.out.print("Menor caminho de " + verticeInicio.getValor() + " até " + vertices.get(i).getValor() + ": " + dist.get(i) + " | Path: ");
+            for (int j = 0; j < pilhaCaminho.size(); j++) {
+                System.out.print(" - "+((VerticeValorado)pilhaCaminho.get(j)).getValor());
             }
             System.out.println("");
-            caminho = new Stack();
+            pilhaCaminho = new Stack();
         }
     }
 }

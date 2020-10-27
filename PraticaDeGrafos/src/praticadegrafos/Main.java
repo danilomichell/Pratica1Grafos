@@ -51,7 +51,7 @@ public class Main {
         LinkedList iria dificultar um pouco*/
         
         ArrayList<VerticeValorado> grafo2 = GrafoDijkstra.carregarGrafoDijkstra();
+        GrafoDijkstra.printGrafoDijkstra(grafo2);
         GrafoDijkstra.menorCaminho1(grafo2.get(0), grafo2);
-        //GrafoDijkstra.printGrafoDijkstra(grafo2);
     }
 }
